@@ -14,6 +14,7 @@ public final class TZBlockEntityRenderers {
     @SubscribeEvent
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerBlockEntityRenderer(TZRegistry.SEARCH_CHEST_ENTITY.get(), ChestRenderer::new);
+        event.registerBlockEntityRenderer(TZRegistry.SECRET_CHEST_ENTITY.get(), ChestRenderer::new);
         event.registerBlockEntityRenderer(TZRegistry.SEARCH_BED_ENTITY.get(), BedRenderer::new);
     }
 
