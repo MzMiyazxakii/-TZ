@@ -22,6 +22,7 @@ import ru.tz.block.TZSearchBedBlock;
 import ru.tz.block.TZSearchBedBlockEntity;
 import ru.tz.block.TZSearchChestBlock;
 import ru.tz.block.TZSearchChestBlockEntity;
+import ru.tz.block.TZSearchChiseledBookshelfBlock;
 import ru.tz.item.TZKeyItem;
 
 import java.util.ArrayList;
@@ -81,7 +82,7 @@ public final class TZRegistry {
         addSearchable("search_blast_furnace", SoundType.STONE);
         addSearchable("search_beehive", SoundType.WOOD);
         addSearchable("search_bookshelf", SoundType.WOOD);
-        addSearchable("search_chiseled_bookshelf", SoundType.WOOD);
+        addChiseledBookshelf();
 
         addBlockItem("search_chest", SEARCH_CHEST);
         addBlockItem("search_bed", SEARCH_BED);
@@ -94,6 +95,12 @@ public final class TZRegistry {
         RegistryObject<Item> item = ITEMS.register("locked_" + name + "_door",
                 () -> new BlockItem(block.get(), new Item.Properties()));
         TAB_ITEMS.add(item);
+    }
+
+    private static void addChiseledBookshelf() {
+        RegistryObject<Block> block = BLOCKS.register("search_chiseled_bookshelf",
+                () -> new TZSearchChiseledBookshelfBlock(BlockBehaviour.Properties.of().strength(1.5F).sound(SoundType.WOOD)));
+        addBlockItem("search_chiseled_bookshelf", block);
     }
 
     private static void addSearchable(String name, SoundType sound) {
