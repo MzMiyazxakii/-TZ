@@ -7,7 +7,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.SoundType;\nimport net.minecraft.world.level.block.SmokerBlock;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
@@ -81,7 +81,7 @@ public final class TZRegistry {
         addSearchable("search_blast_furnace", SoundType.STONE);
         addSearchable("search_beehive", SoundType.WOOD);
         addSearchable("search_bookshelf", SoundType.WOOD);
-        addSearchable("search_chiseled_bookshelf", SoundType.WOOD);
+        addSearchable("search_chiseled_bookshelf", SoundType.WOOD);\n\n        RegistryObject<Block> brewingTable = BLOCKS.register("brewing_table",\n                () -> new Block(BlockBehaviour.Properties.copy(Blocks.CAULDRON)));\n        addBlockItem("brewing_table", brewingTable);\n        RegistryObject<Block> oven = BLOCKS.register("oven",\n                () -> new SmokerBlock(BlockBehaviour.Properties.copy(Blocks.SMOKER)));\n        addBlockItem("oven", oven);
 
         addBlockItem("search_chest", SEARCH_CHEST);
         addBlockItem("search_bed", SEARCH_BED);
