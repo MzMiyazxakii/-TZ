@@ -14,5 +14,15 @@
   "block.tz.locked_warped_door": "Искажённая запертая дверь",
   "screen.tz.transfer.title": "Передача денег",
   "screen.tz.transfer.amount": "Введите сумму",
-  "screen.tz.transfer.send": "Передать"
+  "screen.tz.transfer.send": "Передать",
+  "block.tz.search_chest": "Поисковый сундук",
+  "block.tz.search_crafting_table": "Поисковый верстак",
+  "block.tz.search_barrel": "Поисковая бочка",
+  "block.tz.search_furnace": "Поисковая печь",
+  "block.tz.search_smoker": "Поисковая коптильня",
+  "block.tz.search_blast_furnace": "Поисковая плавильная печь",
+  "block.tz.search_bed": "Поисковая кровать",
+  "block.tz.search_beehive": "Поисковый улей",
+  "block.tz.search_bookshelf": "Поисковая книжная полка",
+  "block.tz.search_chiseled_bookshelf": "Поисковая резная книжная полка"
 }
