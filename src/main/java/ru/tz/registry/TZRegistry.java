@@ -71,7 +71,7 @@ public final class TZRegistry {
 
     public static final RegistryObject<Block> SECRET_CHEST = BLOCKS.register("secret_chest",
             () -> new TZSecretChestBlock(BlockBehaviour.Properties.copy(Blocks.CHEST),
-                    () -> SECRET_CHEST_ENTITY.get()));
+                    () -> TZRegistry.SECRET_CHEST_ENTITY.get()));
     public static final RegistryObject<BlockEntityType<TZSecretChestBlockEntity>> SECRET_CHEST_ENTITY =
             BLOCK_ENTITIES.register("secret_chest", () ->
                     BlockEntityType.Builder.of(TZSecretChestBlockEntity::new, SECRET_CHEST.get()).build(null));
