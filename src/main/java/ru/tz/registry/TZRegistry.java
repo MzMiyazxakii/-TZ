@@ -14,6 +14,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import ru.tz.TZMod;
 import ru.tz.block.TZLockedDoorBlock;
+import ru.tz.block.TZSearchBlock;
 import ru.tz.item.TZKeyItem;
 
 import java.util.ArrayList;
@@ -46,6 +47,16 @@ public final class TZRegistry {
         addDoor("bamboo", BlockSetType.BAMBOO, Blocks.BAMBOO_DOOR);
         addDoor("crimson", BlockSetType.CRIMSON, Blocks.CRIMSON_DOOR);
         addDoor("warped", BlockSetType.WARPED, Blocks.WARPED_DOOR);
+        addSearchable("search_chest", Blocks.CHEST);
+        addSearchable("search_crafting_table", Blocks.CRAFTING_TABLE);
+        addSearchable("search_barrel", Blocks.BARREL);
+        addSearchable("search_furnace", Blocks.FURNACE);
+        addSearchable("search_smoker", Blocks.SMOKER);
+        addSearchable("search_blast_furnace", Blocks.BLAST_FURNACE);
+        addSearchable("search_bed", Blocks.RED_BED);
+        addSearchable("search_beehive", Blocks.BEEHIVE);
+        addSearchable("search_bookshelf", Blocks.BOOKSHELF);
+        addSearchable("search_chiseled_bookshelf", Blocks.CHISELED_BOOKSHELF);
         TAB_ITEMS.add(KEY);
     }
 
@@ -53,6 +64,14 @@ public final class TZRegistry {
         RegistryObject<Block> block = BLOCKS.register("locked_" + name + "_door",
                 () -> new TZLockedDoorBlock(BlockBehaviour.Properties.copy(vanillaDoor), type));
         RegistryObject<Item> item = ITEMS.register("locked_" + name + "_door",
+                () -> new BlockItem(block.get(), new Item.Properties()));
+        TAB_ITEMS.add(item);
+    }
+
+    private static void addSearchable(String name, Block vanillaBlock) {
+        RegistryObject<Block> block = BLOCKS.register(name,
+                () -> new TZSearchBlock(BlockBehaviour.Properties.copy(vanillaBlock)));
+        RegistryObject<Item> item = ITEMS.register(name,
                 () -> new BlockItem(block.get(), new Item.Properties()));
         TAB_ITEMS.add(item);
     }
