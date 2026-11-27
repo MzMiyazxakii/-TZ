@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:block/door_top",
   "textures": {
-    "top": "minecraft:block/dark_oak_door"
+    "top": "minecraft:block/dark_oak_door_top",
+    "particle": "minecraft:block/dark_oak_door_top"
   }
 }

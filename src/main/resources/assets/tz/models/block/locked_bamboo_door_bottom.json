@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:block/door_bottom",
   "textures": {
-    "bottom": "minecraft:block/bamboo_door"
+    "bottom": "minecraft:block/bamboo_door_bottom",
+    "particle": "minecraft:block/bamboo_door_bottom"
   }
 }

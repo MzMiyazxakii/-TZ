@@ -19,7 +19,6 @@ import ru.tz.item.TZKeyItem;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Supplier;
 
 public final class TZRegistry {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, TZMod.MOD_ID);
@@ -47,16 +46,17 @@ public final class TZRegistry {
         addDoor("bamboo", BlockSetType.BAMBOO, Blocks.BAMBOO_DOOR);
         addDoor("crimson", BlockSetType.CRIMSON, Blocks.CRIMSON_DOOR);
         addDoor("warped", BlockSetType.WARPED, Blocks.WARPED_DOOR);
-        addSearchable("search_chest");
-        addSearchable("search_crafting_table");
-        addSearchable("search_barrel");
-        addSearchable("search_furnace");
-        addSearchable("search_smoker");
-        addSearchable("search_blast_furnace");
-        addSearchable("search_bed");
-        addSearchable("search_beehive");
-        addSearchable("search_bookshelf");
-        addSearchable("search_chiseled_bookshelf");
+
+        addSearchable("search_chest", Blocks.CHEST);
+        addSearchable("search_crafting_table", Blocks.CRAFTING_TABLE);
+        addSearchable("search_barrel", Blocks.BARREL);
+        addSearchable("search_furnace", Blocks.FURNACE);
+        addSearchable("search_smoker", Blocks.SMOKER);
+        addSearchable("search_blast_furnace", Blocks.BLAST_FURNACE);
+        addSearchable("search_bed", Blocks.RED_BED);
+        addSearchable("search_beehive", Blocks.BEEHIVE);
+        addSearchable("search_bookshelf", Blocks.BOOKSHELF);
+        addSearchable("search_chiseled_bookshelf", Blocks.CHISELED_BOOKSHELF);
         TAB_ITEMS.add(KEY);
     }
 
@@ -68,12 +68,11 @@ public final class TZRegistry {
         TAB_ITEMS.add(item);
     }
 
-    private static void addSearchable(String name) {
-        // Search props are generic blocks, not vanilla block-state copies.
-        // Copying beds/furnaces/chests also copies state-dependent callbacks
-        // (part/lit/facing etc.) that TZSearchBlock does not define.
+    private static void addSearchable(String name, Block vanillaBlock) {
+        // Preserve the vanilla material, hardness and sound group without copying
+        // the vanilla block's state properties or block-specific behavior.
         RegistryObject<Block> block = BLOCKS.register(name,
-                () -> new TZSearchBlock(BlockBehaviour.Properties.of().strength(2.0F).sound(net.minecraft.world.level.block.SoundType.WOOD)));
+                () -> new TZSearchBlock(BlockBehaviour.Properties.copy(vanillaBlock).strength(2.0F)));
         RegistryObject<Item> item = ITEMS.register(name,
                 () -> new BlockItem(block.get(), new Item.Properties()));
         TAB_ITEMS.add(item);
