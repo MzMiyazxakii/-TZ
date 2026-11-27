@@ -2,6 +2,7 @@
   "parent": "minecraft:block/door_bottom",
   "textures": {
     "bottom": "minecraft:block/spruce_door_bottom",
+    "top": "minecraft:block/spruce_door_top",
     "particle": "minecraft:block/spruce_door_bottom"
   }
 }
