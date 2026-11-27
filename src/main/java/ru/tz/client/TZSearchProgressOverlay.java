@@ -31,6 +31,6 @@ public final class TZSearchProgressOverlay {
         g.fill(x + 10, y + 12, x + 12, y + 16, 0xFF503B18);
         g.fill(x + 23, y + 8, x + 102, y + 15, 0xFF454545);
         g.fill(x + 23, y + 8, x + 23 + Math.round(79 * progress), y + 15, 0xFFE0B34F);
-        g.drawCenteredString(Minecraft.getInstance().font, "Взлом", width / 2, y - 10, 0xFFFFFFFF);
+        g.drawCenteredString(Minecraft.getInstance().font, "Поиск", width / 2, y - 10, 0xFFFFFFFF);
     }
 }
