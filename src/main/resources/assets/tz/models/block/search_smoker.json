@@ -1,6 +1,9 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/smoker",
   "textures": {
-    "all": "minecraft:block/smoker_side"
+    "bottom": "minecraft:block/smoker_bottom",
+    "front": "minecraft:block/smoker_front",
+    "side": "minecraft:block/smoker_side",
+    "top": "minecraft:block/smoker_top"
   }
 }
