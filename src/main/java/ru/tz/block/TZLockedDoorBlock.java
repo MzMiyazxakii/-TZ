@@ -25,6 +25,12 @@ public class TZLockedDoorBlock extends DoorBlock {
     }
 
     @Override
+    public void neighborChanged(BlockState state, Level level, BlockPos pos,
+                                net.minecraft.world.level.block.Block block, BlockPos fromPos, boolean isMoving) {
+        // Ignore redstone power: only a matching TZ key may open this door.
+    }
+
+    @Override
     public void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         if (!state.hasProperty(OPEN) || !state.getValue(OPEN)) return;
         BlockPos lowerPos = state.getValue(HALF) == DoubleBlockHalf.UPPER ? pos.below() : pos;
