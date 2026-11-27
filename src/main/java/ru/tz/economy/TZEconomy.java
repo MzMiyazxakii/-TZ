@@ -6,22 +6,27 @@ import net.minecraft.server.level.ServerPlayer;
 public final class TZEconomy {
     private static final String ROOT = "tz_economy";
     private static final String BALANCE = "balance";
+    private static final long MAX_BALANCE = 1_000_000_000_000L;
 
     private TZEconomy() {}
 
     public static long getBalance(ServerPlayer player) {
-        CompoundTag data = player.getPersistentData();
-        return Math.max(0L, data.getCompound(ROOT).getLong(BALANCE));
+        return Math.max(0L, player.getPersistentData().getCompound(ROOT).getLong(BALANCE));
     }
 
     public static void setBalance(ServerPlayer player, long amount) {
-        player.getPersistentData().getCompound(ROOT).putLong(BALANCE, Math.max(0L, amount));
+        CompoundTag data = player.getPersistentData();
+        CompoundTag economy = data.getCompound(ROOT);
+        economy.putLong(BALANCE, Math.max(0L, Math.min(MAX_BALANCE, amount)));
+        data.put(ROOT, economy);
     }
 
     public static boolean transfer(ServerPlayer from, ServerPlayer to, long amount) {
-        if (from == to || amount <= 0 || getBalance(from) < amount) return false;
-        setBalance(from, getBalance(from) - amount);
-        setBalance(to, getBalance(to) + amount);
+        long senderBalance = getBalance(from);
+        long receiverBalance = getBalance(to);
+        if (from == to || amount <= 0 || senderBalance < amount || receiverBalance > MAX_BALANCE - amount) return false;
+        setBalance(from, senderBalance - amount);
+        setBalance(to, receiverBalance + amount);
         return true;
     }
 }
