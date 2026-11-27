@@ -1,0 +1,15 @@
+{
+  "itemGroup.tz.main": "TZ",
+  "item.tz.door_key": "Ключ от двери",
+  "block.tz.locked_oak_door": "Дубовая запертая дверь",
+  "block.tz.locked_spruce_door": "Еловая запертая дверь",
+  "block.tz.locked_birch_door": "Берёзовая запертая дверь",
+  "block.tz.locked_jungle_door": "Тропическая запертая дверь",
+  "block.tz.locked_acacia_door": "Акациевая запертая дверь",
+  "block.tz.locked_dark_oak_door": "Тёмно-дубовая запертая дверь",
+  "block.tz.locked_mangrove_door": "Мангровая запертая дверь",
+  "block.tz.locked_cherry_door": "Вишнёвая запертая дверь",
+  "block.tz.locked_bamboo_door": "Бамбуковая запертая дверь",
+  "block.tz.locked_crimson_door": "Багровая запертая дверь",
+  "block.tz.locked_warped_door": "Искажённая запертая дверь"
+}
