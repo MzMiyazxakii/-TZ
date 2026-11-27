@@ -16,6 +16,8 @@
   "screen.tz.transfer.amount": "Введите сумму",
   "screen.tz.transfer.send": "Передать",
   "block.tz.search_chest": "Поисковый сундук",
+  "block.tz.secret_chest": "Секретный сундук",
+  "container.tz.secret_chest": "Секретный сундук",
   "block.tz.search_crafting_table": "Поисковый верстак",
   "block.tz.search_barrel": "Поисковая бочка",
   "block.tz.search_furnace": "Поисковая печь",
