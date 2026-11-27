@@ -11,5 +11,8 @@
   "block.tz.locked_cherry_door": "Вишнёвая запертая дверь",
   "block.tz.locked_bamboo_door": "Бамбуковая запертая дверь",
   "block.tz.locked_crimson_door": "Багровая запертая дверь",
-  "block.tz.locked_warped_door": "Искажённая запертая дверь"
+  "block.tz.locked_warped_door": "Искажённая запертая дверь",
+  "screen.tz.transfer.title": "Передача денег",
+  "screen.tz.transfer.amount": "Введите сумму",
+  "screen.tz.transfer.send": "Передать"
 }
