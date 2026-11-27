@@ -50,7 +50,7 @@ public final class TZRegistry {
     // and textures are therefore the same as the vanilla chest and red bed.
     public static final RegistryObject<Block> SEARCH_CHEST = BLOCKS.register("search_chest",
             () -> new TZSearchChestBlock(BlockBehaviour.Properties.of().strength(2.5F).sound(SoundType.WOOD),
-                    () -> SEARCH_CHEST_ENTITY.get()));
+                    () -> TZRegistry.SEARCH_CHEST_ENTITY.get()));
     public static final RegistryObject<BlockEntityType<TZSearchChestBlockEntity>> SEARCH_CHEST_ENTITY =
             BLOCK_ENTITIES.register("search_chest", () ->
                     BlockEntityType.Builder.of(TZSearchChestBlockEntity::new, SEARCH_CHEST.get()).build(null));
