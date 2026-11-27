@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "tz:block/search_bookshelf"
+    }
+  }
+}
