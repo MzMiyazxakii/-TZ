@@ -1,9 +1,11 @@
 package ru.tz.block;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -19,13 +21,11 @@ public class TZLockedDoorBlock extends DoorBlock {
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player,
                                  InteractionHand hand, BlockHitResult hit) {
-        // TZ doors are opened only by a key (or a future lock-picking item).
         return InteractionResult.FAIL;
     }
 
     @Override
-    public void tick(BlockState state, Level level, BlockPos pos,
-                     net.minecraft.server.level.ServerLevel serverLevel) {
+    public void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         if (!state.hasProperty(OPEN) || !state.getValue(OPEN)) return;
         BlockPos lowerPos = state.getValue(HALF) == DoubleBlockHalf.UPPER ? pos.below() : pos;
         BlockState lower = level.getBlockState(lowerPos);
