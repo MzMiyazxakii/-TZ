@@ -1,5 +1,6 @@
 package ru.tz.client;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.InventoryScreen;
 import net.minecraftforge.api.distmarker.Dist;
@@ -21,7 +22,7 @@ public final class InventoryRestrictionOverlay {
         int left = screen.getGuiLeft();
         int top = screen.getGuiTop();
 
-        graphics.drawString(screen.getMinecraft().font, "Секретные карманы",
+        graphics.drawString(Minecraft.getInstance().font, "Секретные карманы",
                 left + 8, top + 73, 0xFFFF5555, false);
 
         // Four uppermost cells of the ordinary 3x9 inventory grid: slots 9-12.
