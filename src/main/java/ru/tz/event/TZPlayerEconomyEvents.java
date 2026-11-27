@@ -2,6 +2,7 @@ package ru.tz.event;
 
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -13,6 +14,17 @@ import ru.tz.network.TZNetwork;
 @Mod.EventBusSubscriber(modid = TZMod.MOD_ID)
 public final class TZPlayerEconomyEvents {
     private TZPlayerEconomyEvents() {}
+
+    @SubscribeEvent
+    public static void onPlayerClone(PlayerEvent.Clone event) {
+        if (event.isWasDeath()) {
+            net.minecraft.nbt.CompoundTag oldData = event.getOriginal().getPersistentData();
+            net.minecraft.nbt.CompoundTag newData = event.getEntity().getPersistentData();
+            if (oldData.contains("tz_economy")) {
+                newData.put("tz_economy", oldData.getCompound("tz_economy").copy());
+            }
+        }
+    }
 
     @SubscribeEvent
     public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
