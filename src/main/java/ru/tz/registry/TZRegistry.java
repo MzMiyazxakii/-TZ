@@ -4,6 +4,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -13,6 +14,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.common.extensions.IForgeMenuType;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -23,6 +25,9 @@ import ru.tz.block.TZSearchBedBlock;
 import ru.tz.block.TZSearchBedBlockEntity;
 import ru.tz.block.TZSearchChestBlock;
 import ru.tz.block.TZSearchChestBlockEntity;
+import ru.tz.block.TZSecretChestBlock;
+import ru.tz.block.TZSecretChestBlockEntity;
+import ru.tz.block.TZSecretChestMenu;
 import ru.tz.item.TZKeyItem;
 
 import java.util.ArrayList;
@@ -35,6 +40,8 @@ public final class TZRegistry {
             DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, TZMod.MOD_ID);
     public static final DeferredRegister<CreativeModeTab> TABS =
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, TZMod.MOD_ID);
+    public static final DeferredRegister<MenuType<?>> MENUS =
+            DeferredRegister.create(ForgeRegistries.MENU_TYPES, TZMod.MOD_ID);
 
     public static final RegistryObject<Item> KEY =
             ITEMS.register("door_key", () -> new TZKeyItem(new Item.Properties().stacksTo(1)));
@@ -61,6 +68,16 @@ public final class TZRegistry {
     public static final RegistryObject<BlockEntityType<TZSearchBedBlockEntity>> SEARCH_BED_ENTITY =
             BLOCK_ENTITIES.register("search_bed", () ->
                     BlockEntityType.Builder.of(TZSearchBedBlockEntity::new, SEARCH_BED.get()).build(null));
+
+    public static final RegistryObject<Block> SECRET_CHEST = BLOCKS.register("secret_chest",
+            () -> new TZSecretChestBlock(BlockBehaviour.Properties.copy(Blocks.CHEST),
+                    () -> SECRET_CHEST_ENTITY.get()));
+    public static final RegistryObject<BlockEntityType<TZSecretChestBlockEntity>> SECRET_CHEST_ENTITY =
+            BLOCK_ENTITIES.register("secret_chest", () ->
+                    BlockEntityType.Builder.of(TZSecretChestBlockEntity::new, SECRET_CHEST.get()).build(null));
+    public static final RegistryObject<MenuType<TZSecretChestMenu>> SECRET_CHEST_MENU =
+            MENUS.register("secret_chest", () -> IForgeMenuType.create(
+                    (id, inventory, data) -> new TZSecretChestMenu(id, inventory, new net.minecraft.world.SimpleContainer(4))));
 
     static {
         addDoor("oak", BlockSetType.OAK, Blocks.OAK_DOOR);
@@ -93,6 +110,7 @@ public final class TZRegistry {
 
         addBlockItem("search_chest", SEARCH_CHEST);
         addBlockItem("search_bed", SEARCH_BED);
+        addBlockItem("secret_chest", SECRET_CHEST);
         TAB_ITEMS.add(KEY);
     }
 
@@ -120,6 +138,7 @@ public final class TZRegistry {
         ITEMS.register(bus);
         BLOCK_ENTITIES.register(bus);
         TABS.register(bus);
+        MENUS.register(bus);
     }
 
     private TZRegistry() {}
