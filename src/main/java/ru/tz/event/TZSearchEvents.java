@@ -13,7 +13,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraft.world.SimpleContainer;
 import ru.tz.TZMod;
-import ru.tz.block.TZSearchBlock;
+import ru.tz.block.TZSearchable;
 
 @Mod.EventBusSubscriber(modid = TZMod.MOD_ID)
 public final class TZSearchEvents {
@@ -41,7 +41,7 @@ public final class TZSearchEvents {
             return;
         }
         BlockState state = player.level().getBlockState(pos);
-        if (!(state.getBlock() instanceof TZSearchBlock)) return;
+        if (!(state.getBlock() instanceof TZSearchable)) return;
 
         // Placeholder inventory: the loot table will populate this container in a later update.
         SimpleContainer loot = new SimpleContainer(27);

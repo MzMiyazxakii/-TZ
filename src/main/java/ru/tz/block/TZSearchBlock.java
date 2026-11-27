@@ -12,7 +12,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 
-public class TZSearchBlock extends Block {
+public class TZSearchBlock extends Block implements TZSearchable {
     public TZSearchBlock(Properties properties) { super(properties); }
 
     public static InteractionResult beginSearch(BlockPos pos, Player player, InteractionHand hand) {

@@ -12,7 +12,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import java.util.function.Supplier;
 
-public class TZSearchChestBlock extends ChestBlock {
+public class TZSearchChestBlock extends ChestBlock implements TZSearchable {
     public TZSearchChestBlock(Properties properties, Supplier<BlockEntityType<? extends ChestBlockEntity>> type) {
         super(properties, type);
     }

@@ -11,7 +11,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import ru.tz.registry.TZRegistry;
 
-public class TZSearchBedBlock extends BedBlock {
+public class TZSearchBedBlock extends BedBlock implements TZSearchable {
     public TZSearchBedBlock(Properties properties) { super(DyeColor.RED, properties); }
 
     @Override
