@@ -6,6 +6,7 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -69,10 +70,14 @@ public final class TZRegistry {
     }
 
     private static void addSearchable(String name, Block vanillaBlock) {
-        // Preserve the vanilla material, hardness and sound group without copying
-        // the vanilla block's state properties or block-specific behavior.
+        // Avoid Properties.copy: vanilla block-state callbacks can run while
+        // the Blocks registry is still initializing (notably for furnaces).
+        SoundType sound = (vanillaBlock == Blocks.FURNACE
+                || vanillaBlock == Blocks.SMOKER
+                || vanillaBlock == Blocks.BLAST_FURNACE)
+                ? SoundType.STONE : SoundType.WOOD;
         RegistryObject<Block> block = BLOCKS.register(name,
-                () -> new TZSearchBlock(BlockBehaviour.Properties.copy(vanillaBlock).strength(2.0F)));
+                () -> new TZSearchBlock(BlockBehaviour.Properties.of().strength(2.0F).sound(sound)));
         RegistryObject<Item> item = ITEMS.register(name,
                 () -> new BlockItem(block.get(), new Item.Properties()));
         TAB_ITEMS.add(item);
