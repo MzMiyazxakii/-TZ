@@ -70,7 +70,7 @@ public final class TZRegistry {
 
     private static void addSearchable(String name, Block vanillaBlock) {
         RegistryObject<Block> block = BLOCKS.register(name,
-                () -> new TZSearchBlock(BlockBehaviour.Properties.copy(vanillaBlock)));
+                () -> new TZSearchBlock(BlockBehaviour.Properties.copy(vanillaBlock).lightLevel(state -> 0)));
         RegistryObject<Item> item = ITEMS.register(name,
                 () -> new BlockItem(block.get(), new Item.Properties()));
         TAB_ITEMS.add(item);
