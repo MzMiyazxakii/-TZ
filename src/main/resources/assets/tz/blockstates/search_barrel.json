@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "tz:block/search_barrel"
+      "model": "minecraft:block/barrel"
     }
   }
 }

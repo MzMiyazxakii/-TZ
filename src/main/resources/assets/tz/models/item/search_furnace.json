@@ -1,3 +1,3 @@
 {
-  "parent": "tz:block/search_furnace"
+  "parent": "minecraft:item/furnace"
 }

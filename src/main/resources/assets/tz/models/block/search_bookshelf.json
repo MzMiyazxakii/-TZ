@@ -1,1 +1,3 @@
-{"parent":"minecraft:block/bookshelf","textures":{"end":"minecraft:block/oak_planks","side":"minecraft:block/bookshelf"}}
+{
+  "parent": "minecraft:block/bookshelf"
+}

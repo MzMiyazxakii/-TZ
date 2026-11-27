@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "tz:block/search_smoker"
+      "model": "minecraft:block/smoker"
     }
   }
 }

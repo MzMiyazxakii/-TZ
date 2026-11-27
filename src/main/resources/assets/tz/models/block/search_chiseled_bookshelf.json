@@ -1,1 +1,3 @@
-{"parent":"minecraft:block/chiseled_bookshelf","textures":{"top":"minecraft:block/chiseled_bookshelf_top","side":"minecraft:block/chiseled_bookshelf_side","particle":"minecraft:block/chiseled_bookshelf_top"}}
+{
+  "parent": "minecraft:block/chiseled_bookshelf"
+}

@@ -1,1 +1,3 @@
-{"parent":"minecraft:block/furnace","textures":{"front":"minecraft:block/furnace_front","side":"minecraft:block/furnace_side","top":"minecraft:block/furnace_top"}}
+{
+  "parent": "minecraft:block/furnace"
+}

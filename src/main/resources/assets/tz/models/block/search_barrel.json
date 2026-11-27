@@ -1,1 +1,3 @@
-{"parent":"minecraft:block/barrel","textures":{"bottom":"minecraft:block/barrel_bottom","side":"minecraft:block/barrel_side","top":"minecraft:block/barrel_top"}}
+{
+  "parent": "minecraft:block/barrel"
+}
