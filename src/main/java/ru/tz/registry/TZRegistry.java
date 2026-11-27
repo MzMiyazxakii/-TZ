@@ -111,6 +111,75 @@ public final class TZRegistry {
         addBlockItem("search_chest", SEARCH_CHEST);
         addBlockItem("search_bed", SEARCH_BED);
         addBlockItem("secret_chest", SECRET_CHEST);
+        addTextureItem("air_freshener");
+        addTextureItem("beer");
+        addTextureItem("book_metro_2033");
+        addTextureItem("boombox");
+        addTextureItem("bottle");
+        addTextureItem("box_of_parts");
+        addTextureItem("burger");
+        addTextureItem("canned_goods");
+        addTextureItem("cardboard");
+        addTextureItem("cd_disk");
+        addTextureItem("cherry");
+        addTextureItem("chips");
+        addTextureItem("chocolate");
+        addTextureItem("cocktail");
+        addTextureItem("cocktail_2");
+        addTextureItem("chocolate_cocktail");
+        addTextureItem("coffee_beans");
+        addTextureItem("coffee");
+        addTextureItem("coffee_marshmallow");
+        addTextureItem("cookie");
+        addTextureItem("cucumbers");
+        addTextureItem("cutlery");
+        addTextureItem("cutting_board");
+        addTextureItem("doshirak");
+        addTextureItem("dragon_drink");
+        addTextureItem("dragon_fruit");
+        addTextureItem("dragon_juice");
+        addTextureItem("dye");
+        addTextureItem("energy_drink");
+        addTextureItem("fireworks");
+        addTextureItem("flesh");
+        addTextureItem("flour");
+        addTextureItem("flower");
+        addTextureItem("french_fries");
+        addTextureItem("fresh_juice");
+        addTextureItem("fuel");
+        addTextureItem("honey");
+        addTextureItem("ice_cream");
+        addTextureItem("iced_tea");
+        addTextureItem("jagermeister");
+        addTextureItem("jam");
+        addTextureItem("juice");
+        addTextureItem("kettle");
+        addTextureItem("key");
+        addTextureItem("kirieshki");
+        addTextureItem("knife");
+        addTextureItem("lighter");
+        addTextureItem("lockpick");
+        addTextureItem("markers");
+        addTextureItem("marlboro");
+        addTextureItem("marshmallow");
+        addTextureItem("matches");
+        addTextureItem("milk");
+        addTextureItem("music_record");
+        addTextureItem("old_book");
+        addTextureItem("old_cigarettes");
+        addTextureItem("orange");
+        addTextureItem("frying_pan");
+        addTextureItem("phone");
+        addTextureItem("plates");
+        addTextureItem("potions");
+        addTextureItem("pot");
+        addTextureItem("green_potion");
+        addTextureItem("ram");
+        addTextureItem("ring");
+        addTextureItem("rolling_pin");
+        addTextureItem("sausages");
+        addTextureItem("tube");
+        addTextureItem("watch");
         TAB_ITEMS.add(KEY);
     }
 
@@ -126,6 +195,11 @@ public final class TZRegistry {
         RegistryObject<Block> block = BLOCKS.register(name,
                 () -> new TZSearchBlock(BlockBehaviour.Properties.of().strength(2.0F).sound(sound)));
         addBlockItem(name, block);
+    }
+
+    private static void addTextureItem(String name) {
+        RegistryObject<Item> item = ITEMS.register(name, () -> new Item(new Item.Properties()));
+        TAB_ITEMS.add(item);
     }
 
     private static void addBlockItem(String name, RegistryObject<Block> block) {
