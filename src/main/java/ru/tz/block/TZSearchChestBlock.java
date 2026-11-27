@@ -26,6 +26,6 @@ public class TZSearchChestBlock extends ChestBlock implements TZSearchable {
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player,
                                  InteractionHand hand, BlockHitResult hit) {
-        return TZSearchBlock.beginSearch(pos, player, hand);
+        return InteractionResult.SUCCESS;
     }
 }

@@ -19,6 +19,9 @@ public final class TZNetwork {
     private TZNetwork() {}
 
     public static void register() {
+        CHANNEL.messageBuilder(SearchHoldPacket.class, id++)
+                .encoder(SearchHoldPacket::encode).decoder(SearchHoldPacket::decode)
+                .consumerMainThread(SearchHoldPacket::handle).add();
         CHANNEL.messageBuilder(MoneySyncPacket.class, id++)
                 .encoder(MoneySyncPacket::encode).decoder(MoneySyncPacket::decode)
                 .consumerMainThread(MoneySyncPacket::handle).add();
